@@ -5,15 +5,15 @@ import pandas as pd  # For data manipulation
 from flask import Flask, request, jsonify  # For creating the Flask API
 
 # Initialize Flask app with a name
-superkart_api = Flask("superkart_api") #Complete the code to define the name of the app
+superkart_api = Flask("superkart_api")
 
 # Load the trained churn prediction model
-model = joblib.load("backend_files/xgb_tuned_model.joblib") #Complete the code to define the location of the serialized model
+model = joblib.load("xgb_tuned_model.joblib")
 
 # Define a route for the home page
 @superkart_api.get('/')
 def home():
-    return "Welcome to SuperKart Sales Prediction API!" #Complete the code to define a welcome message
+    return "Welcome to SuperKart Sales Prediction API!"
 
 # Define an endpoint to predict churn for a single customer
 @superkart_api.post('/v1/predict')
